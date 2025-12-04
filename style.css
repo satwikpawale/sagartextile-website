@@ -1,0 +1,601 @@
+/* =========================
+   GLOBAL STYLES & VARIABLES
+   ========================= */
+
+:root {
+  --primary: #2563eb;        /* main blue */
+  --primary-dark: #1d4ed8;
+  --accent: #f97316;         /* orange */
+  --accent-soft: #fff7ed;
+  --bg-light: #f3f4f6;       /* page background */
+  --card-bg: #ffffff;
+  --text-main: #111827;
+  --text-muted: #6b7280;
+  --radius-lg: 1.25rem;
+  --shadow-soft: 0 10px 25px rgba(15, 23, 42, 0.08);
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  padding-top: 80px; /* space for fixed navbar + countdown + search */
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  background: var(--bg-light);
+  color: var(--text-main);
+}
+
+/* Links */
+a {
+  color: var(--primary);
+  text-decoration: none;
+}
+
+a:hover {
+  color: var(--primary-dark);
+}
+
+/* Sections */
+section {
+  scroll-margin-top: 90px;
+}
+
+/* =================
+   NAVBAR & TOP BAR
+   ================= */
+
+.offer-strip {
+  background: linear-gradient(90deg, #f97316, #facc15);
+  font-weight: 600;
+  letter-spacing: 0.4px;
+  color: #ffffff;
+}
+
+/* base navbar */
+.navbar {
+  background-color: transparent;
+  box-shadow: none;
+}
+
+/* underline hover effect for nav links */
+.nav-link {
+  position: relative;
+  font-weight: 500;
+  color: #4b5563 !important;
+}
+
+.nav-link:hover {
+  color: var(--primary) !important;
+}
+
+.nav-link::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 0;
+  height: 2px;
+  background-color: var(--primary);
+  transition: width 0.2s ease;
+}
+
+.nav-link:hover::after,
+.nav-link:focus::after {
+  width: 100%;
+}
+
+/* Custom Navbar Design (red bar, white text) */
+.custom-nav {
+  background: #d90429 !important;   /* Premium red */
+  padding: 12px 20px;
+  position: sticky;
+  top: 0;
+  width: 100%;
+  z-index: 1000;
+}
+
+.brand-title {
+  font-size: 28px;
+  font-weight: 800;
+  color: #ffffff !important;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+}
+
+.menu-links .nav-link {
+  color: #ffffff !important;
+  font-weight: 500;
+  font-size: 17px;
+  margin-left: 15px;
+}
+
+.menu-links .nav-link:hover {
+  color: #ffde59 !important;  /* gold hover */
+  transition: 0.3s;
+}
+
+/* mobile toggler icon */
+.navbar-toggler-icon {
+  background-color: #fff;
+}
+
+/* center brand absolutely */
+.navbar-brand {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+/* Since 1934 under logo */
+.since-tag {
+  font-size: 14px;
+  font-weight: 700;
+  color: #ffde59;  /* gold */
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  margin-top: 4px;
+  text-align: center;
+  width: 100%;
+  display: block;
+}
+
+/* Countdown strip */
+#countdown-offer {
+  background: linear-gradient(90deg, #f8f7f5, #f9f8f7);
+  color: #000;
+  font-size: 1.1rem;
+  letter-spacing: 1px;
+}
+
+/* ============
+   HERO SECTION
+   ============ */
+
+.hero-section {
+  min-height: 85vh;
+  background: radial-gradient(circle at top left, #dbeafe, #f9fafb 55%);
+  display: flex;
+  align-items: center;
+}
+
+.hero-section h1 {
+  font-weight: 800;
+}
+
+.hero-section .lead {
+  color: var(--text-muted);
+}
+
+.hero-card {
+  background: var(--card-bg);
+  border-radius: var(--radius-lg);
+  border: 1px solid #e5e7eb;
+  box-shadow: var(--shadow-soft);
+}
+
+/* Buttons */
+
+.btn-primary {
+  background: var(--primary);
+  border-color: var(--primary);
+  border-radius: 999px;
+  padding-inline: 1.75rem;
+}
+
+.btn-primary:hover {
+  background: var(--primary-dark);
+  border-color: var(--primary-dark);
+}
+
+.btn-outline-secondary {
+  border-radius: 999px;
+  padding-inline: 1.75rem;
+}
+
+.btn-success {
+  border-radius: 999px;
+}
+
+/* =========
+   CARDS ETC
+   ========= */
+
+.card,
+.feature-box,
+.offer-card,
+.stat-box,
+.testimonial-card,
+.gallery-item {
+  background: var(--card-bg);
+  border-radius: var(--radius-lg);
+  border: 1px solid #e5e7eb;
+  box-shadow: var(--shadow-soft);
+}
+
+.card,
+.offer-card,
+.gallery-item {
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.card:hover,
+.offer-card:hover,
+.gallery-item:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 16px 35px rgba(15, 23, 42, 0.16);
+}
+
+/* Feature boxes (Why Our Shop) */
+.feature-box {
+  background: #f9fafb;
+}
+
+/* Offers */
+.offer-card h5 {
+  color: var(--primary-dark);
+}
+
+/* Stats */
+.stat-box {
+  background: #ffffff;
+  border-radius: 1rem;
+  border: 1px solid #e5e7eb;
+  box-shadow: 0 5px 18px rgba(0,0,0,0.12);
+}
+
+.stat-number {
+  font-size: 2.4rem;
+  font-weight: 700;
+  color: #2563eb;
+  margin-bottom: 0.25rem;
+}
+
+/* Testimonials */
+.testimonial-card p:first-child {
+  font-style: italic;
+  color: var(--text-muted);
+}
+
+/* Testimonial Auto Carousel */
+.testimonial-card {
+  background: #ffffff;
+  border-radius: 1rem;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.12);
+  border: 1px solid #e5e7eb;
+  text-align: center;
+}
+.carousel-control-prev-icon,
+.carousel-control-next-icon {
+  filter: invert(1);
+}
+
+/* Gallery cards – colourful like e-commerce */
+.gallery-item {
+  background: linear-gradient(135deg, #eff6ff, #fef3c7);
+}
+
+.gallery-item h5 {
+  margin-bottom: 0.4rem;
+}
+
+.gallery-item p {
+  margin: 0;
+  color: #4b5563;
+}
+
+/* ==========
+   FAQ ACCORDION
+   ========== */
+
+.accordion-button {
+  font-weight: 500;
+}
+
+.accordion-button:focus {
+  box-shadow: none;
+}
+
+/* ==========
+   CONTACT + MAP
+   ========== */
+
+.map-container {
+  overflow: hidden;
+  border-radius: var(--radius-lg);
+}
+
+/* =======
+   FOOTER
+   ======= */
+
+.footer {
+  background: #0f172a;
+  color: #e2e8f0;
+  font-size: 0.9rem;
+}
+
+.footer-links li {
+  margin-bottom: 6px;
+}
+
+.footer-links a {
+  color: #e2e8f0;
+  text-decoration: none;
+  transition: 0.2s;
+}
+
+.footer-links a:hover {
+  color: #38bdf8;
+}
+
+.social-icons a {
+  font-size: 22px;
+  margin-right: 12px;
+  color: #f8fafc;
+  transition: 0.2s;
+}
+
+.social-icons a:hover {
+  color: #38bdf8;
+}
+
+/* ======================
+   FLOATING ACTION BUTTONS
+   ====================== */
+
+/* WhatsApp button */
+.whatsapp-float {
+  position: fixed;
+  right: 20px;
+  bottom: 20px;
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  background-color: #25d366;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.25);
+  z-index: 1000;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.whatsapp-float:hover {
+  transform: scale(1.05);
+  box-shadow: 0 14px 30px rgba(0, 0, 0, 0.35);
+}
+
+.whatsapp-icon {
+  width: 35px;
+  height: 35px;
+  filter: brightness(0) invert(1);
+}
+
+/* Back to top */
+.back-to-top {
+  position: fixed;
+  bottom: 90px;
+  right: 22px;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  background-color: var(--primary);
+  color: #ffffff;
+  font-size: 22px;
+  border: none;
+  display: none;          /* JS will show/hide */
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.25);
+  z-index: 999;
+  transition: transform 0.2s ease;
+}
+
+.back-to-top:hover {
+  transform: scale(1.1);
+}
+
+/* ==========
+   RESPONSIVE TWEAKS
+   ========== */
+
+@media (max-width: 767px) {
+  body {
+    padding-top: 72px;
+  }
+
+  .hero-section {
+    padding-top: 1.5rem;
+    padding-bottom: 2.5rem;
+  }
+
+  .hero-section h1 {
+    font-size: 1.9rem;
+  }
+
+  .whatsapp-float {
+    width: 52px;
+    height: 52px;
+  }
+
+  .back-to-top {
+    width: 44px;
+    height: 44px;
+    bottom: 82px;
+    right: 18px;
+  }
+}
+
+/* Product Category Slider */
+.category-slider {
+  display: flex;
+  overflow-x: auto;
+  white-space: nowrap;
+  padding-bottom: 10px;
+  scrollbar-width: none;      /* Firefox hide scrollbar */
+}
+
+.category-slider::-webkit-scrollbar {
+  display: none;              /* Chrome hide scrollbar */
+}
+
+.cat-card {
+  min-width: 170px;
+  padding: 1.2rem;
+  border-radius: 1rem;
+  background: linear-gradient(135deg, #dbeafe, #fef3c7);
+  border: 1px solid #e5e7eb;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+  cursor: pointer;
+  transition: transform 0.25s ease;
+}
+
+.cat-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 18px 35px rgba(0,0,0,0.22);
+}
+
+.cat-card h6 {
+  font-weight: 700;
+  margin-bottom: 6px;
+}
+
+.cat-card p {
+  margin: 0;
+  color: #374151;
+}
+
+/* Featured product cards */
+.product-card {
+  background: #ffffff;
+  border-radius: 1rem;
+  border: 1px solid #e5e7eb;
+  box-shadow: 0 10px 25px rgba(15, 23, 42, 0.08);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.product-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 18px 40px rgba(15, 23, 42, 0.16);
+}
+
+.product-img-placeholder {
+  background: linear-gradient(135deg, #dbeafe, #e0f2fe);
+  border-radius: 0.8rem;
+  padding: 1.8rem 1rem;
+  text-align: center;
+  font-weight: 600;
+  color: #1f2937;
+}
+
+/* Sticky Quick Contact Bar */
+.sticky-bar {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 55px;
+  background: #0f172a;
+  z-index: 9999;
+  box-shadow: 0 -5px 18px rgba(0,0,0,0.25);
+}
+
+.sticky-item {
+  flex: 1;
+  color: #ffffff;
+  text-align: center;
+  font-weight: 600;
+  text-decoration: none;
+  padding: 10px 0;
+  font-size: 16px;
+  border-right: 1px solid #1e293b;
+}
+
+.sticky-item:hover {
+  background: #1e293b;
+  color: #38bdf8;
+}
+
+.sticky-item:last-child {
+  border-right: none;
+}
+
+/* Search Box & Suggestions */
+.search-container {
+  max-width: 500px;
+  margin: 0 auto;
+  margin-top: 90px; /* adjust under navbar + countdown */
+  position: relative;
+}
+
+.search-container input {
+  border-radius: 30px;
+  padding: 12px 18px;
+  font-size: 16px;
+}
+
+.suggestions {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  position: absolute;
+  width: 100%;
+  background: #ffffff;
+  border-radius: 10px;
+  box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+  display: none;
+  z-index: 1000;
+}
+
+.suggestions li {
+  padding: 10px 15px;
+  cursor: pointer;
+}
+
+.suggestions li:hover {
+  background: #f1f5f9;
+}
+
+/* Careers Section */
+#careers {
+  background: #f9fafb;
+}
+
+.careers-card {
+  background: #ffffff;
+  border: 1px solid #e5e7eb;
+}
+
+.careers-badge {
+  display: inline-block;
+  padding: 4px 10px;
+  font-size: 11px;
+  border-radius: 999px;
+  background: #e0f2fe;
+  color: #0369a1;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.careers-list {
+  padding-left: 1.1rem;
+}
+
+.xsmall {
+  font-size: 11px;
+}
+
+.careers-form .form-control-sm,
+.careers-form .form-select-sm {
+  font-size: 13px;
+}
